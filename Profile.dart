@@ -1,6 +1,21 @@
-ClipOval(
-                        child:
-                        GestureDetector(
+
+// ignore: must_be_immutable
+class ProfileKT extends StatefulWidget {
+
+  ProfileKT({
+    @required this.onTap,
+  });
+  final GestureTapCallback onTap;
+  
+  _ProfileKTState createState() => _ProfileKTState();
+}
+
+class _ProfileKTState extends State<ProfileKT> {
+  
+  _buildItem(context) {
+    return GestureDetector(
+        onTap: onTap,
+        child:  GestureDetector(
                           onTap:() {
                             Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: profil()));
                           },
@@ -32,3 +47,16 @@ ClipOval(
                           ),
                         ),
                       ),
+
+
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return _buildItem(context);
+  }
+
+}
+
